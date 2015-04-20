@@ -48,7 +48,7 @@ namespace RedSocial.Controllers
                 return View(model);
             }
 
-            return View("Index","Home");
+            return RedirectToAction("Index","Home");
         }
         public ActionResult Registro()
         {

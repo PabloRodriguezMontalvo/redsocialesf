@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AmigosController.cs" />
     <Compile Include="Controllers\AutenticacionController.cs" />
     <Compile Include="Controllers\FakeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Models\Amigos.cs" />
     <Compile Include="Models\MensajePrivado.cs" />
     <Compile Include="Models\MensajePublico.cs" />
+    <Compile Include="Models\NuevoAmigo.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializador.cs" />
@@ -126,6 +128,8 @@
     <Content Include="Views\Autenticacion\Registro.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ListadoMensajesPublicos.cshtml" />
+    <Content Include="Views\Amigos\MisAmigos.cshtml" />
+    <Content Include="Views\Amigos\NuevoAmigo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

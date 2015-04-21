@@ -113,6 +113,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializador.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\ServicioAmigos.cs" />
     <Compile Include="Utilities\Serializador.cs" />
   </ItemGroup>
   <ItemGroup>

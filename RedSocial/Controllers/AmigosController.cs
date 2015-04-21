@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using RedSocial.Models;
 using RedSocial.Services;
 using RedSocialWebApi.Models;
 
@@ -10,8 +10,7 @@ namespace RedSocial.Controllers
 {
     public class AmigosController : Controller
     {
-        BaseServicios<Amigos> servicio = new BaseServicios<Amigos>
-               ("http://localhost:49322/api/Amigos"); 
+        ServicioAmigos servicio = new ServicioAmigos("http://localhost:49322/api/Amigos"); 
         // GET: Amigos
         public ActionResult MisAmigos()
         {
@@ -31,11 +30,18 @@ namespace RedSocial.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddAmigo(String txt)
+        public async Task<ActionResult> AddAmigo(String txt)
         {
-           
-            
+            var us = Session["usuario"] as Usuario;
+            if (us == null)
+                return RedirectToAction("Index", "Autenticacion");
+            var na = new NuevoAmigo()
+            {
+                Email = txt,
+                IdUsuario = us.id
+            };
 
+            await servicio.AddNuevoAmigo(na);
 
             return Json("Ok");
         }
@@ -43,6 +49,11 @@ namespace RedSocial.Controllers
 
     }
 }
+
+
+
+
+
 
 
 

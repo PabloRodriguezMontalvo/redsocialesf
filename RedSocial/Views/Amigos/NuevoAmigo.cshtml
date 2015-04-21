@@ -5,17 +5,34 @@
 
 <script>
     (function() {
-        var txt = $("#txtEmail").val();
 
-        $.ajax({
-            url: "",
-            type: "POST",
-            dataType: "json",
-            contentType: "application/json",
-            data:txt,
-            success: function () { },
-            error:function (){}
+        $("#btnAdd").bind("click",function() {
+        
+            var txt = $("#txtEmail").val();
+
+            var obj = { txt: txt };
+
+            $.ajax({
+                url: "/amigos/AddAmigo",
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                data:JSON.stringify(obj) ,
+                success: function () {
+
+                    location.reload();
+
+                },
+                error: function () {
+
+                    alert("Algo ha fallado");
+
+                }
+            });
+
         });
+
+        
 
 
     })();
